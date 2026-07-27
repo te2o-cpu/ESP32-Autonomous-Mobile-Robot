@@ -13,7 +13,41 @@ The system integrates power distribution, sensing, actuation, and visual telemet
 - **Obstacle Sensing:** HC-SR04 Ultrasonic Sensor mounted on an SG90 Servo Motor (180° scanning)
 - **Speed & Distance Tracking:** Optical Speed Encoder utilizing Hardware Interrupts (ISR)
 - **Telemetry Display:** 16x2 I2C LCD
+![Hardware Block Diagram](Detailed%20Hardware%20Architecture.png)
+## 🔌 Detailed Hardware Architecture & Pinout Description
 
+If the block diagram image is unclear, here is a detailed breakdown of the power distribution and signal routing across all subsystems:
+
+### 1. Power Distribution Network
+- **Primary Power Source:** 12V High-Cap Battery Pack[cite: 2].
+- **High-Power Rail (12V):** Powers the L298N Motor Driver and I2C LCD Display directly[cite: 2].
+- **Logic Power Rail (5V):** Regulated via a 5V Buck Converter / LM7805 Linear Regulator to power the ESP32 Microcontroller logic and low-power sensors (Ultrasonic & Servo)[cite: 2].
+
+---
+
+### 2. Microcontroller Pinout & Peripheral Connections (ESP32 DevKit V1)
+
+#### 🏎️ Motor Control (L298N H-Bridge Driver)
+- **PWM Speed Channels:** `ENA -> GPIO 32` | `ENB -> GPIO 33` (Driven via ESP32 `ledc` PWM timers at 5kHz)[cite: 2].
+- **Direction Pins (Left Motor):** `IN1 -> GPIO 25` | `IN2 -> GPIO 26`[cite: 2].
+- **Direction Pins (Right Motor):** `IN3 -> GPIO 27` | `IN4 -> GPIO 14`[cite: 2].
+
+#### 🦇 Obstacle Avoidance Subsystem (HC-SR04 & SG90 Servo)
+- **Ultrasonic Trigger:** `Trig -> GPIO 5` (Sends 10µs ultrasonic burst pulses)[cite: 2].
+- **Ultrasonic Echo:** `Echo -> GPIO 18` (Reads return signal pulse duration)[cite: 2].
+- **Servo Motor Signal:** `PWM -> GPIO 23` (Rotates ultrasonic sensor 180° for directional scanning)[cite: 2].
+
+#### ⏱️ Speed & Position Telemetry (Optical Encoder)
+- **Encoder Pulse Output:** `Signal -> GPIO 13` (Configured with internal pull-up and bound to a hardware Interrupt Service Routine (ISR) `countPulse`)[cite: 2].
+
+#### 📺 Visual Telemetry Display (16x2 I2C LCD)
+- **I2C Serial Data:** `SDA -> GPIO 21` (Default ESP32 I2C Data line)[cite: 2].
+- **I2C Serial Clock:** `SCL -> GPIO 22` (Default ESP32 I2C Clock line)[cite: 2].
+
+---
+
+### 📡 Wireless Communication Protocol
+- **Bluetooth Classic:** Uses built-in ESP32 Bluetooth stack configured via `BluetoothSerial.h` to process incoming ASCII control characters (`F`, `B`, `L`, `R`, `S`) from a connected smartphone application[cite: 2].
 ---
 
 ## 🎯 Key Features & Operating Modes
