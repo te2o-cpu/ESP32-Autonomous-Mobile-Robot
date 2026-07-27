@@ -2,7 +2,11 @@
 # ESP32 Dual-Mode Mobile Robot with Autonomous Obstacle Avoidance & Teleoperation 🤖🚗
 
 A modular, 4-wheel mobile robot powered by an **ESP32 DevKit V1** microcontroller. The system features dual operating modes: real-time **Bluetooth teleoperation** and **autonomous obstacle avoidance** driven by ultrasonic servo-scanning and optical speed encoders.
-
+## 📸 Physical Hardware Prototype
+<p center">
+  <img src="robot_front.jpeg" width="45%" alt="Robot Front View" />
+  <img src="robot_top.jpeg" width="45%" alt="Robot Top View" />
+</p>
 ---
 
 ## 📸 System Architecture & Block Diagram
