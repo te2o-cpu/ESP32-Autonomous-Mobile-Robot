@@ -13,10 +13,11 @@ The system integrates power distribution, sensing, actuation, and visual telemet
 - **Obstacle Sensing:** HC-SR04 Ultrasonic Sensor mounted on an SG90 Servo Motor (180° scanning)
 - **Speed & Distance Tracking:** Optical Speed Encoder utilizing Hardware Interrupts (ISR)
 - **Telemetry Display:** 16x2 I2C LCD
+- 
 ![Hardware Block Diagram](Detailed%20Hardware%20Architecture.png)
 ## 🔌 Detailed Hardware Architecture & Pinout Description
 
-If the block diagram image is unclear, here is a detailed breakdown of the power distribution and signal routing across all subsystems:
+here is a detailed breakdown of the power distribution and signal routing across all subsystems:
 
 ### 1. Power Distribution Network
 - **Primary Power Source:** 12V High-Cap Battery Pack[cite: 2].
