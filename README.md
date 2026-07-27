@@ -55,6 +55,6 @@ Uses an Optical Encoder connected to an **Interrupt Service Routine (ISR)** to c
 ---
 
 ## 👥 Project Team & Acknowledgments
-- **Submitted By:** Toqa Haitham, Malak Sayed, Radwa Khaled, Anas Hesham, Ahmad Osama[cite: 2]
-- **Supervised By:** Prof. Dr. Taha Helmy, Eng. Hussein Rashed, Eng. Kareem Ameed, Eng. Sara Abdel-Naser[cite: 2]
-- **Institution:** Modern University for Technology and Information (MTI) - Mechatronics Department[cite: 2]
+- **Submitted By:** Toqa Haitham, Malak Sayed, Radwa Khaled, Anas Hesham, Ahmad Osama
+- **Supervised By:** Prof. Dr. Taha Helmy, Eng. Hussein Rashed, Eng. Kareem Ameed, Eng. Sara Abdel-Naser
+- **Institution:** Modern University for Technology and Information (MTI) - Mechatronics Department
